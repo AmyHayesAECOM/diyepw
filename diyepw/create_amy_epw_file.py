@@ -147,8 +147,9 @@ def create_amy_epw_file(
 
       
     amy_df = pd.read_csv(amy_file_path, sep='\\s+', header=None)
-    amy_next_year_df = pd.read_csv(amy_next_year_file_path, sep='\\s+', header=None, nrows=23)
+    
     try:
+            amy_next_year_df = pd.read_csv(amy_next_year_file_path, sep='\\s+', header=None, nrows=23)
             amy_df = pd.concat([amy_df, amy_next_year_df]).reset_index(drop=True)
     except Exception as e:
             # An issue occurs when trying to create an AMY for the current year
